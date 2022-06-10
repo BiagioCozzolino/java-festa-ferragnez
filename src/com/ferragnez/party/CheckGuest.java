@@ -4,7 +4,8 @@ import java.util.Scanner;
 
 public class CheckGuest {
 	public static void main(String[] args) {
-
+		
+		//Inizio array e variabili
 		String[] listaInvitati = {
 				"Dua Lipa",
 				"Paris Hilton",
@@ -20,15 +21,18 @@ public class CheckGuest {
 		};
 		String nomeInserito;
 		
+		//Inizio sezione immissione nome
 		Scanner scan = new Scanner(System.in);
 		
 		System.out.println("Benvenuto alla festa dei Ferragnez!, prego dimmi il tuo nome per verificare l'invito : ");
 		nomeInserito = scan.nextLine();
 		
+		//Inizio sezione verifica invitato
 		boolean invitato = false;
 		int counter = 0;
+		
 		while (invitato == false && counter < listaInvitati.length) {
-			if (listaInvitati[counter].equals(nomeInserito)){
+			if (listaInvitati[counter].equalsIgnoreCase(nomeInserito)){
 				invitato = true;
 				System.out.println("Salve Sing./Sig.ra " + nomeInserito +" lei può entrare alla festa dei Ferragnez!");
 				
@@ -36,6 +40,9 @@ public class CheckGuest {
 				counter++;
 			}
 		}
-		
+		if(!invitato) {
+			System.out.println("Mi dispiace lei non risulta invitato alla festa dei Ferragnez, è pregato di andarsene.");
+
+		}
 	}
 }
